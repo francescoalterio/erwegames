@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erwe Games - Desarrolladores Independientes</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de la fuente Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Iconos (Lucide) -->
+    <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+        /* Aplicar la fuente Inter a todo el cuerpo */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Color de acento personalizado */
+        .accent-color {
+            color: #38bdf8; /* sky-500 */
+        }
+        .bg-accent-color {
+            background-color: #38bdf8;
+        }
+        .border-accent-color {
+            border-color: #38bdf8;
+        }
+        .hover\:bg-accent-hover:hover {
+            background-color: #0ea5e9; /* sky-600 */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 antialiased">
+
+    <!-- Header y Navegación -->
+    <header class="bg-gray-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-700/50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" class="text-3xl font-black tracking-tighter text-white">
+                Erwe<span class="accent-color">Games</span>
+            </a>
+            <!-- Menú de Navegación -->
+            <div class="hidden md:flex space-x-6 lg:space-x-8">
+                <a href="#home" class="text-gray-300 hover:text-white transition duration-300">Inicio</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition duration-300">Sobre Nosotros</a>
+                <a href="#games" class="text-gray-300 hover:text-white transition-duration-300">Nuestros Juegos</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition-duration-300">Contacto</a>
+            </div>
+            <!-- Botón de Menú Móvil (simple) -->
+            <button id="mobile-menu-btn" class="md:hidden text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <!-- Menú Móvil (Oculto por defecto) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 px-6 pb-4">
+            <a href="#home" class="block py-2 text-gray-300 hover:text-white">Inicio</a>
+            <a href="#about" class="block py-2 text-gray-300 hover:text-white">Sobre Nosotros</a>
+            <a href="#games" class="block py-2 text-gray-300 hover:text-white">Nuestros Juegos</a>
+            <a href="#contact" class="block py-2 text-gray-300 hover:text-white">Contacto</a>
+        </div>
+    </header>
+
+    <!-- Sección Principal (Hero) -->
+    <main id="home" class="relative overflow-hidden">
+        <div class="container mx-auto px-6 py-24 md:py-32 lg:py-48 text-center">
+            <!-- Efecto de fondo -->
+            <div class="absolute inset-0 -z-10 opacity-10">
+                <div class="absolute left-[10%] top-[10%] h-48 w-48 rounded-full bg-sky-500 blur-3xl"></div>
+                <div class="absolute right-[10%] bottom-[10%] h-64 w-64 rounded-full bg-indigo-600 blur-3xl"></div>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tighter">
+                Creamos <span class="accent-color">Nuevos</span> Mundos.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10">
+                Somos Erwe Games, un colectivo independiente de desarrolladores, artistas y soñadores apasionados por crear experiencias inolvidables.
+            </p>
+            <a href="#games" class="bg-accent-color text-gray-900 font-bold py-3 px-8 rounded-full text-lg hover:bg-accent-hover transition duration-300 shadow-lg shadow-sky-500/30">
+                Ver Proyectos
+            </a>
+        </div>
+    </main>
+
+    <!-- Sección Sobre Nosotros -->
+    <section id="about" class="py-20 md:py-32 bg-gray-800/50">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <!-- Imagen Placeholder -->
+            <div>
+                <img src="https://placehold.co/600x400/1f2937/38bdf8?text=Erwe+Team" 
+                     alt="El equipo de Erwe Games" 
+                     class="rounded-lg shadow-2xl w-full h-auto object-cover">
+            </div>
+            <!-- Texto -->
+            <div class="max-w-lg">
+                <h2 class="text-sm font-bold uppercase tracking-widest accent-color mb-3">Quiénes Somos</h2>
+                <h3 class="text-4xl md:text-5xl font-bold text-white mb-6">Unidos por la Pasión</h3>
+                <p class="text-gray-300 mb-4 leading-relaxed">
+                    Erwe Games nació de la amistad y un amor compartido por los videojuegos. No somos un gran estudio, somos un grupo unido que pone el corazón en cada píxel y cada línea de código.
+                </p>
+                <p class="text-gray-300 leading-relaxed">
+                    Creemos en la experimentación, en contar historias que importan y en construir comunidades. Nuestro objetivo es simple: hacer juegos que nos gustaría jugar.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Juegos -->
+    <section id="games" class="py-20 md:py-32">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-sm font-bold uppercase tracking-widest accent-color mb-3">Portafolio</h2>
+                <h3 class="text-4xl md:text-5xl font-bold text-white mb-4">Nuestros Proyectos</h3>
+                <p class="text-gray-400 text-lg">
+                    Aquí hay una muestra de los mundos que hemos traído a la vida.
+                </p>
+            </div>
+
+            <!-- Grid de Juegos -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Tarjeta de Juego 1 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl transform hover:-translate-y-2 transition duration-300 group">
+                    <img src="https://placehold.co/600x400/111827/38bdf8?text=Proyecto+Astra" 
+                         alt="Portada del Proyecto Astra" 
+                         class="w-full h-48 object-cover group-hover:opacity-80 transition duration-300">
+                    <div class="p-6">
+                        <h4 class="text-2xl font-bold text-white mb-2">Proyecto Astra</h4>
+                        <span class="text-xs font-semibold bg-sky-500/20 text-sky-400 py-1 px-3 rounded-full uppercase">En Desarrollo</span>
+                        <p class="text-gray-400 mt-4">
+                            Una aventura de ciencia ficción y exploración espacial con un enfoque narrativo profundo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Juego 2 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl transform hover:-translate-y-2 transition duration-300 group">
+                    <img src="https://placehold.co/600x400/111827/38bdf8?text=Eco+Perdido" 
+                         alt="Portada de Eco Perdido" 
+                         class="w-full h-48 object-cover group-hover:opacity-80 transition duration-300">
+                    <div class="p-6">
+                        <h4 class="text-2xl font-bold text-white mb-2">Eco Perdido</h4>
+                        <span class="text-xs font-semibold bg-green-500/20 text-green-400 py-1 px-3 rounded-full uppercase">Lanzado</span>
+                        <p class="text-gray-400 mt-4">
+                            Un emotivo juego de puzzles y plataformas 2D sobre un espíritu del bosque que intenta restaurar su hogar.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Tarjeta de Juego 3 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl transform hover:-translate-y-2 transition duration-300 group">
+                    <img src="https://placehold.co/600x400/111827/38bdf8?text=Ritmo+Neón" 
+                         alt="Portada de Ritmo Neón" 
+                         class="w-full h-48 object-cover group-hover:opacity-80 transition duration-300">
+                    <div class="p-6">
+                        <h4 class="text-2xl font-bold text-white mb-2">Ritmo Neón</h4>
+                        <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 py-1 px-3 rounded-full uppercase">Game Jam</span>
+                        <p class="text-gray-400 mt-4">
+                            Un rápido juego de ritmo arcade con estética cyberpunk, creado en 72 horas para una game jam.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contact" class="py-20 md:py-32 bg-gray-800/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-sm font-bold uppercase tracking-widest accent-color mb-3">Hablemos</h2>
+                <h3 class="text-4xl md:text-5xl font-bold text-white mb-4">Ponte en Contacto</h3>
+                <p class="text-gray-400 text-lg">
+                    ¿Tienes una idea, una pregunta o simplemente quieres saludar? Nos encantaría escucharte.
+                </p>
+            </div>
+
+            <!-- Formulario de Contacto -->
+            <form id="contact-form" class="max-w-xl mx-auto">
+                <div class="mb-5">
+                    <label for="name" class="block mb-2 text-sm font-medium text-gray-300">Tu Nombre</label>
+                    <input type="text" id="name" class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5" placeholder="John Doe" required>
+                </div>
+                <div class="mb-5">
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-300">Tu Email</label>
+                    <input type="email" id="email" class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5" placeholder="tu@email.com" required>
+                </div>
+                <div class="mb-5">
+                    <label for="message" class="block mb-2 text-sm font-medium text-gray-300">Tu Mensaje</label>
+                    <textarea id="message" rows="4" class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-2.5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="bg-accent-color text-gray-900 font-bold py-3 px-10 rounded-full text-lg hover:bg-accent-hover transition duration-300 shadow-lg shadow-sky-500/30">
+                        Enviar Mensaje
+                    </button>
+                </div>
+            </form>
+            <!-- Mensaje de éxito (oculto) -->
+            <div id="success-message" class="hidden max-w-xl mx-auto mt-6 p-4 text-center bg-green-500/20 text-green-300 rounded-lg">
+                ¡Gracias! Tu mensaje ha sido enviado. Nos pondremos en contacto pronto.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-700/50">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+            <p>&copy; <span id="current-year"></span> Erwe Games. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+
+    <!-- Script de JavaScript -->
+    <script>
+        // Cargar iconos de Lucide
+        lucide.createIcons();
+
+        // Lógica del Menú Móvil
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cerrar menú móvil al hacer clic en un enlace
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Lógica del Formulario de Contacto
+        const contactForm = document.getElementById('contact-form');
+        const successMessage = document.getElementById('success-message');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevenir el envío real del formulario
+            
+            // Simular un envío exitoso
+            contactForm.classList.add('hidden');
+            successMessage.classList.remove('hidden');
+        });
+
+        // Año actual en el footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
