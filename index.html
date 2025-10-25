@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -6,13 +7,16 @@
     <!-- Favicon -->
     <link rel="icon" href="icono.png" type="image/png">
     
-    <!-- Carga de Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Carga de Google Fonts --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Carga de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Iconos (para el menú móvil) --><script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <!-- Iconos (para el menú móvil) -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
     <style>
         /* Estilos personalizados y configuración de Tailwind */
@@ -83,37 +87,51 @@
 </head>
 <body class="bg-primary-dark text-gray-200 font-inter">
 
-    <!-- Header / Navbar --><header class="fixed top-0 left-0 w-full bg-primary-dark/80 backdrop-blur-md z-50 border-b border-primary-cyan/20">
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full bg-primary-dark/80 backdrop-blur-md z-50 border-b border-primary-cyan/20">
         <nav class="container mx-auto max-w-6xl px-6 py-4 flex justify-between items-center">
-            <!-- Logo --><a href="#" class="flex items-center space-x-3">
-                <img src="icono.png" alt="Logo Erwe Games" class="h-12 w-12 rounded-full border-2 border-primary-cyan/50 shadow-neon-light">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-3">
+                <img src="icono.png" alt="Logo Erwe Games" class="h-12 w-12 rounded-full border-2 border-primary-cyan/50 shadow-neon-light" onerror="this.style.display='none'">
                 <span class="text-2xl font-orbitron font-bold text-white">ERWE GAMES</span>
             </a>
 
-            <!-- Navegación Desktop --><div class="hidden md:flex items-center space-x-6">
+            <!-- Navegación Desktop -->
+            <div class="hidden md:flex items-center space-x-6">
                 <a href="#hero" class="text-gray-300 hover:text-primary-cyan transition-colors duration-300">Inicio</a>
                 <a href="#about" class="text-gray-300 hover:text-primary-cyan transition-colors duration-300">Sobre Nosotros</a>
                 <a href="#projects" class="text-gray-300 hover:text-primary-cyan transition-colors duration-300">Proyectos</a>
             </div>
 
-            <!-- Botón Menú Móvil --><button id="menu-button" class="md:hidden text-white hover:text-primary-cyan">
-                <i data-lucide="menu" class="lucide"></i>
-            </button>
+            <!-- Botón Menú Móvil (Restaurado) -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-300 hover:text-primary-cyan transition-colors" aria-label="Abrir menú">
+                    <i data-lucide="menu" class="lucide"></i>
+                </button>
+            </div>
         </nav>
     </header>
 
-    <!-- Menú Móvil (Oculto por defecto) --><div id="mobile-menu" class="hidden fixed inset-0 bg-primary-dark/95 z-40 flex flex-col items-center justify-center space-y-8 md:hidden">
-        <button id="close-menu-button" class="absolute top-8 right-6 text-white hover:text-primary-cyan">
-            <i data-lucide="x" class="lucide w-8 h-8"></i>
-        </button>
-        <a href="#hero" class="text-3xl font-orbitron text-gray-200 hover:text-primary-cyan transition-colors duration-300 mobile-link">Inicio</a>
-        <a href="#about" class="text-3xl font-orbitron text-gray-200 hover:text-primary-cyan transition-colors duration-300 mobile-link">Sobre Nosotros</a>
-        <a href="#projects" class="text-3xl font-orbitron text-gray-200 hover:text-primary-cyan transition-colors duration-300 mobile-link">Proyectos</a>
+    <!-- Menú Móvil (Restaurado) -->
+    <!-- Modificado: Se ajusta debajo del header (top-20) y tiene altura automática (h-auto) -->
+    <div id="mobile-menu" class="hidden fixed top-16 left-0 w-full h-auto bg-primary-dark/95 backdrop-blur-lg z-40 md:hidden">
+        <div class="flex flex-col space-y-4 p-6">
+            <a href="#hero" class="mobile-menu-link text-lg text-center text-gray-200 hover:text-primary-cyan transition-colors">Inicio</a>
+            <a href="#about" class="mobile-menu-link text-lg text-center text-gray-200 hover:text-primary-cyan transition-colors">Sobre Nosotros</a>
+            <a href="#projects" class="mobile-menu-link text-lg text-center text-gray-200 hover:text-primary-cyan transition-colors">Proyectos</a>
+        </div>
     </div>
 
-    <!-- Contenido Principal --><main class="pt-20"> <!-- Padding top para compensar el header fijo --><!-- Sección Hero --><section id="hero" class="min-h-screen flex items-center justify-center text-center px-6 pt-16 md:pt-0" style="background: radial-gradient(circle, rgba(0,209,255,0.05) 0%, rgba(0,0,0,0) 50%);">
+
+    <!-- Contenido Principal -->
+    <!-- El pt-20 (5rem) compensa el header fijo -->
+    <main class="pt-20"> 
+
+        <!-- Sección Hero -->
+        <section id="hero" class="min-h-screen flex items-center justify-center text-center px-6 pt-16 md:pt-0" style="background: radial-gradient(circle, rgba(0,209,255,0.05) 0%, rgba(0,0,0,0) 50%);">
             <div class="flex flex-col items-center">
-                <!-- Se elimina la imagen del logo aquí --><h1 class="text-5xl md:text-7xl font-orbitron font-bold text-white uppercase" style="text-shadow: 0 0 15px var(--color-primary-cyan);">
+                <!-- Se elimina la imagen del logo aquí -->
+                <h1 class="text-5xl md:text-7xl font-orbitron font-bold text-white uppercase" style="text-shadow: 0 0 15px var(--color-primary-cyan);">
                     ERWE GAMES
                 </h1>
                 <p class="text-xl md:text-2xl text-primary-cyan mt-4 font-semibold">
@@ -122,7 +140,8 @@
             </div>
         </section>
 
-        <!-- Sección Sobre Nosotros --><section id="about" class="py-24 px-6">
+        <!-- Sección Sobre Nosotros -->
+        <section id="about" class="py-24 px-6">
             <div class="container mx-auto max-w-4xl">
                 <h2 class="text-4xl md:text-5xl font-orbitron text-center text-white mb-12">
                     ¿Quiénes <span class="text-primary-cyan">Somos</span>?
@@ -130,7 +149,7 @@
                 <div class="bg-gray-900/50 backdrop-blur-sm p-8 md:p-12 rounded-xl border border-primary-cyan/30 shadow-lg">
                     <p class="text-lg md:text-xl text-center leading-relaxed">
                         Somos <strong class="font-bold text-white">Erwe Games</strong>, un grupo de amigos y apasionados por los videojuegos. Aunque nuestra base está en <strong class="font-bold text-white">Venezuela</strong>, nuestra comunidad no tiene fronteras, contando con miembros de diversas nacionalidades.
-                    </pos>
+                    </p>
                     <p class="text-lg md:text-xl text-center leading-relaxed mt-6">
                         Lo que comenzó como un simple grupo para jugar se ha convertido en una familia internacional unida por la diversión, la competencia amistosa y la creación de grandes recuerdos.
                     </p>
@@ -138,7 +157,8 @@
             </div>
         </section>
 
-        <!-- Sección Proyectos --><section id="projects" class="py-24 px-6 bg-primary-dark/70">
+        <!-- Sección Proyectos -->
+        <section id="projects" class="py-24 px-6 bg-primary-dark/70">
             <div class="container mx-auto max-w-6xl">
                 <h2 class="text-4xl md:text-5xl font-orbitron text-center text-white mb-12">
                     Nuestros <span class="text-primary-cyan">Proyectos</span>
@@ -148,9 +168,11 @@
                     De vez en cuando, nos gusta experimentar y crear nuestras propias herramientas.
                 </p>
 
-                <!-- Grid de Proyectos --><div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Grid de Proyectos -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     
-                    <!-- Tarjeta de Proyecto: Ruleta --><div class="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-primary-cyan/30 overflow-hidden shadow-lg transition-all duration-300 hover:shadow-neon hover:border-primary-cyan/80 transform hover:-translate-y-1">
+                    <!-- Tarjeta de Proyecto: Ruleta -->
+                    <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-primary-cyan/30 overflow-hidden shadow-lg transition-all duration-300 hover:shadow-neon hover:border-primary-cyan/80 transform hover:-translate-y-1">
                         <div class="p-8">
                             <h3 class="text-2xl md:text-3xl font-orbitron text-primary-cyan mb-4">
                                 Ruleta de Juegos
@@ -164,7 +186,8 @@
                         </div>
                     </div>
 
-                    <!-- Tarjeta de Proyecto: Generador de Números --><div class="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-primary-cyan/30 overflow-hidden shadow-lg transition-all duration-300 hover:shadow-neon hover:border-primary-cyan/80 transform hover:-translate-y-1">
+                    <!-- Tarjeta de Proyecto: Generador de Números -->
+                    <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-primary-cyan/30 overflow-hidden shadow-lg transition-all duration-300 hover:shadow-neon hover:border-primary-cyan/80 transform hover:-translate-y-1">
                         <div class="p-8">
                             <h3 class="text-2xl md:text-3xl font-orbitron text-primary-cyan mb-4">
                                 Generador de Números
@@ -178,7 +201,8 @@
                         </div>
                     </div>
 
-                    <!-- Puedes añadir más tarjetas de proyectos aquí cuando las tengas --><!-- 
+                    <!-- Puedes añadir más tarjetas de proyectos aquí cuando las tengas -->
+                    <!-- 
                     <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-700/50 p-8 text-center opacity-60">
                         <h3 class="text-2xl font-orbitron text-gray-500 mb-4">
                             Próximo Proyecto
@@ -187,20 +211,23 @@
                             (Próximamente...)
                         </p>
                     </div>
-                    --></div>
+                    -->
+                </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer --><footer class="bg-primary-dark border-t border-primary-cyan/20 py-8 px-6">
+    <!-- Footer -->
+    <footer class="bg-primary-dark border-t border-primary-cyan/20 py-8 px-6">
         <div class="container mx-auto max-w-6xl text-center text-gray-500">
             <p>&copy; <span id="current-year"></span> Erwe Games. Todos los derechos reservados.</p>
             <p class="text-sm mt-2">Creado con pasión desde Venezuela para el mundo.</p>
         </div>
     </footer>
 
-    <!-- Scripts JS --><script>
+    <!-- Scripts JS -->
+    <script>
         // Esperar a que el DOM esté completamente cargado
         document.addEventListener('DOMContentLoaded', () => {
             
@@ -212,30 +239,49 @@
                 console.error('Lucide icons script not loaded.');
             }
 
-            // Lógica del Menú Móvil
-            const menuButton = document.getElementById('menu-button');
-            const closeMenuButton = document.getElementById('close-menu-button');
+            // --- Lógica del Menú Móvil (Restaurada) ---
+            const menuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            const mobileLinks = document.querySelectorAll('.mobile-link');
+            const menuLinks = document.querySelectorAll('.mobile-menu-link');
 
-            const toggleMenu = () => {
-                if (mobileMenu) {
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', () => {
+                    // Alternar la visibilidad del menú
                     mobileMenu.classList.toggle('hidden');
-                }
-            };
-
-            // Asegurarse de que los botones existen antes de añadir listeners
-            if (menuButton) {
-                menuButton.addEventListener('click', toggleMenu);
+                    
+                    // Cambiar el ícono (Menu <-> X)
+                    const icon = menuButton.querySelector('i');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        icon.setAttribute('data-lucide', 'menu');
+                    } else {
+                        icon.setAttribute('data-lucide', 'x');
+                    }
+                    
+                    // Volver a renderizar los íconos de Lucide
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                });
             }
-            if (closeMenuButton) {
-                closeMenuButton.addEventListener('click', toggleMenu);
+
+            // Cerrar el menú móvil al hacer clic en un enlace
+            if (menuLinks.length > 0 && mobileMenu && menuButton) {
+                menuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        
+                        // Asegurarse de que el ícono vuelva a ser 'menu'
+                        const icon = menuButton.querySelector('i');
+                        icon.setAttribute('data-lucide', 'menu');
+                        if (typeof lucide !== 'undefined') {
+                            lucide.createIcons();
+                        }
+                    });
+                });
             }
 
-            // Cerrar menú al hacer clic en un enlace
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', toggleMenu);
-            });
+            // --- Fin de la lógica del Menú Móvil ---
+
 
             // Año actual en el footer
             // Asegurarse de que el span existe
@@ -248,4 +294,5 @@
 
 </body>
 </html>
+
 
