@@ -1,298 +1,318 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erwe Games - Sitio Oficial</title>
-    <!-- Favicon -->
-    <link rel="icon" href="icono.png" type="image/png">
+    <title>Erwe Games - Hub Comunidad</title>
     
-    <!-- Carga de Tailwind CSS -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Carga de Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Iconos (para el menú móvil) -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* Estilos personalizados y configuración de Tailwind */
-        :root {
-            --color-primary-cyan: #00d1ff;
-            --color-primary-dark: #0a0a1a;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0c;
+            color: #e2e8f0;
         }
-
-        /* Configuración de Tailwind para usar las fuentes y colores del logo */
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary-cyan': 'var(--color-primary-cyan)',
-                        'primary-dark': 'var(--color-primary-dark)',
-                        'steel-blue': '#4a6e8a',
-                    },
-                    fontFamily: {
-                        'orbitron': ['Orbitron', 'sans-serif'],
-                        'inter': ['Inter', 'sans-serif'],
-                    },
-                    boxShadow: {
-                        'neon': '0 0 20px 5px rgba(0, 209, 255, 0.6), 0 0 8px 2px rgba(0, 209, 255, 0.5) inset',
-                        'neon-light': '0 0 10px 2px rgba(0, 209, 255, 0.5)',
-                    },
-                    keyframes: {
-                        'pulse-glow': {
-                            '0%, 100%': { 
-                                boxShadow: '0 0 15px 2px rgba(0, 209, 255, 0.5)',
-                                opacity: 0.9
-                            },
-                            '50%': { 
-                                boxShadow: '0 0 30px 8px rgba(0, 209, 255, 0.8)',
-                                opacity: 1
-                            },
-                        }
-                    },
-                    animation: {
-                        'pulse-glow': 'pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
-                }
+        
+        /* Animaciones personalizadas que no están en Tailwind por defecto */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
             }
         }
-
-        /* Estilo base del body */
-        body {
-            background-color: var(--color-primary-dark);
-            /* Fondo sutil de estrellas */
-            background-image: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-            color: #E0E0E0;
-            font-family: 'Inter', 'sans-serif';
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
         }
 
-        /* Scroll suave */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Estilo para los íconos de Lucide */
-        .lucide {
-            width: 24px;
-            height: 24px;
-            stroke-width: 2;
+        /* Utilidad para selección de texto */
+        ::selection {
+            background-color: #a855f7; /* purple-500 */
+            color: white;
         }
     </style>
 </head>
-<body class="bg-primary-dark text-gray-200 font-inter">
+<body class="overflow-x-hidden">
 
-    <!-- Header / Navbar -->
-    <header class="fixed top-0 left-0 w-full bg-primary-dark/80 backdrop-blur-md z-50 border-b border-primary-cyan/20">
-        <nav class="container mx-auto max-w-6xl px-6 py-4 flex justify-between items-center">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6">
+        <div class="container mx-auto px-6 flex justify-between items-center">
             <!-- Logo -->
-            <a href="#" class="flex items-center space-x-3">
-                <img src="icono.png" alt="Logo Erwe Games" class="h-12 w-12 rounded-full border-2 border-primary-cyan/50 shadow-neon-light" onerror="this.style.display='none'">
-                <span class="text-2xl font-orbitron font-bold text-white">ERWE GAMES</span>
-            </a>
-
-            <!-- Navegación Desktop -->
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="#hero" class="text-gray-300 hover:text-primary-cyan transition-colors duration-300">Inicio</a>
-                <a href="#about" class="text-gray-300 hover:text-primary-cyan transition-colors duration-300">Sobre Nosotros</a>
-                <a href="#projects" class="text-gray-300 hover:text-primary-cyan transition-colors duration-300">Proyectos</a>
+            <div class="flex items-center gap-2 font-bold text-2xl tracking-tighter text-white">
+                <div class="w-10 h-10 bg-gradient-to-tr from-purple-600 to-blue-500 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/20">
+                    <i data-lucide="gamepad-2" class="text-white w-6 h-6"></i>
+                </div>
+                <span>ERWE<span class="text-purple-400">GAMES</span></span>
             </div>
 
-            <!-- Botón Menú Móvil (Restaurado) -->
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-gray-300 hover:text-primary-cyan transition-colors" aria-label="Abrir menú">
-                    <i data-lucide="menu" class="lucide"></i>
-                </button>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex gap-8 font-medium text-sm text-slate-300">
+                <a href="#home" class="hover:text-white transition-colors">Inicio</a>
+                <a href="#about" class="hover:text-white transition-colors">Comunidad</a>
+                <a href="#apps" class="hover:text-white transition-colors">Nuestras Apps</a>
             </div>
-        </nav>
-    </header>
 
-    <!-- Menú Móvil (Restaurado) -->
-    <!-- Modificado: Se ajusta debajo del header (top-20) y tiene altura automática (h-auto) -->
-    <div id="mobile-menu" class="hidden fixed top-[81px] left-0 w-full h-auto bg-primary-dark/95 backdrop-blur-lg z-40 md:hidden">
-        <div class="flex flex-col space-y-4 p-6">
-            <a href="#hero" class="mobile-menu-link text-lg text-center text-gray-200 hover:text-primary-cyan transition-colors">Inicio</a>
-            <a href="#about" class="mobile-menu-link text-lg text-center text-gray-200 hover:text-primary-cyan transition-colors">Sobre Nosotros</a>
-            <a href="#projects" class="mobile-menu-link text-lg text-center text-gray-200 hover:text-primary-cyan transition-colors">Proyectos</a>
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                <i data-lucide="menu" id="menu-icon"></i>
+            </button>
         </div>
-    </div>
 
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-[#0a0a0c] border-b border-white/10 p-6 flex-col gap-4 shadow-2xl z-40">
+            <a href="#home" class="block text-lg text-slate-300 hover:text-white py-2 mobile-link">Inicio</a>
+            <a href="#about" class="block text-lg text-slate-300 hover:text-white py-2 mobile-link">Comunidad</a>
+            <a href="#apps" class="block text-lg text-slate-300 hover:text-white py-2 mobile-link">Nuestras Apps</a>
+        </div>
+    </nav>
 
-    <!-- Contenido Principal -->
-    <!-- El pt-20 (5rem) compensa el header fijo -->
-    <main class="pt-20"> 
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 overflow-hidden">
+        <!-- Background Gradients -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
 
-        <!-- Sección Hero -->
-        <section id="hero" class="min-h-screen flex items-center justify-center text-center px-6 pt-16 md:pt-0" style="background: radial-gradient(circle, rgba(0,209,255,0.05) 0%, rgba(0,0,0,0) 50%);">
-            <div class="flex flex-col items-center">
-                <!-- Se elimina la imagen del logo aquí -->
-                <h1 class="text-5xl md:text-7xl font-orbitron font-bold text-white uppercase" style="text-shadow: 0 0 15px var(--color-primary-cyan);">
-                    ERWE GAMES
-                </h1>
-                <p class="text-xl md:text-2xl text-primary-cyan mt-4 font-semibold">
-                    Unidos por la pasión de jugar
-                </p>
+        <div class="container mx-auto text-center max-w-4xl">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-purple-300 text-sm font-medium mb-6 animate-fade-in-up">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+                </span>
+                Comunidad Internacional
             </div>
-        </section>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight animate-fade-in-up" style="animation-delay: 0.1s;">
+                Más que un grupo de juego, <br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400">
+                    una familia digital.
+                </span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
+                Centralizamos nuestras herramientas y pasiones en un solo lugar. Desde Venezuela para el mundo, unidos por la competencia y los grandes recuerdos.
+            </p>
 
-        <!-- Sección Sobre Nosotros -->
-        <section id="about" class="py-24 px-6">
-            <div class="container mx-auto max-w-4xl">
-                <h2 class="text-4xl md:text-5xl font-orbitron text-center text-white mb-12">
-                    ¿Quiénes <span class="text-primary-cyan">Somos</span>?
-                </h2>
-                <div class="bg-gray-900/50 backdrop-blur-sm p-8 md:p-12 rounded-xl border border-primary-cyan/30 shadow-lg">
-                    <p class="text-lg md:text-xl text-center leading-relaxed">
-                        Somos <strong class="font-bold text-white">Erwe Games</strong>, un grupo de amigos y apasionados por los videojuegos. Aunque nuestra base está en <strong class="font-bold text-white">Venezuela</strong>, nuestra comunidad no tiene fronteras, contando con miembros de diversas nacionalidades.
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style="animation-delay: 0.3s;">
+                <a href="#apps" class="px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-slate-200 transition-colors flex items-center justify-center gap-2">
+                    Explorar Apps <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </a>
+                <a href="#about" class="px-8 py-4 bg-white/5 text-white font-medium rounded-lg hover:bg-white/10 border border-white/10 transition-colors backdrop-blur-sm">
+                    Conoce al Equipo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-[#0f0f12] relative border-y border-white/5">
+        <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <!-- Visual Group -->
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                <div class="relative h-full min-h-[300px] bg-[#1a1a20] rounded-xl p-8 flex flex-col justify-center border border-white/10">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-white/5 rounded-lg flex flex-col items-center justify-center text-center">
+                            <i data-lucide="globe" class="text-blue-400 w-8 h-8 mb-2"></i>
+                            <span class="text-sm text-slate-400">Base en Venezuela</span>
+                            <span class="font-bold text-white">Alma Global</span>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-lg flex flex-col items-center justify-center text-center">
+                            <i data-lucide="users" class="text-purple-400 w-8 h-8 mb-2"></i>
+                            <span class="text-sm text-slate-400">Comunidad</span>
+                            <span class="font-bold text-white">Sin Fronteras</span>
+                        </div>
+                        <div class="col-span-2 p-4 bg-white/5 rounded-lg flex flex-col items-center justify-center text-center">
+                            <i data-lucide="heart" class="text-pink-400 w-8 h-8 mb-2"></i>
+                            <span class="text-sm text-slate-400">Unidos por</span>
+                            <span class="font-bold text-white">Amistad y Videojuegos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Text Content -->
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Quiénes Somos</h2>
+                <div class="space-y-4 text-slate-400 text-lg leading-relaxed">
+                    <p>
+                        Somos <span class="text-purple-400 font-semibold">Erwe Games</span>. Lo que comenzó como un simple grupo para jugar se ha convertido en una familia internacional unida por la diversión, la competencia amistosa y la creación de grandes recuerdos.
                     </p>
-                    <p class="text-lg md:text-xl text-center leading-relaxed mt-6">
-                        Lo que comenzó como un simple grupo para jugar se ha convertido en una familia internacional unida por la diversión, la competencia amistosa y la creación de grandes recuerdos.
+                    <p>
+                        Aunque nuestra base está en <span class="text-white">Venezuela</span>, nuestra comunidad no tiene fronteras, contando con miembros de diversas nacionalidades que comparten una misma pasión: el gaming en todas sus formas.
+                    </p>
+                    <p>
+                        Este dominio, <span class="text-white font-mono text-sm bg-white/10 px-2 py-1 rounded">erwegames.com</span>, es nuestro centro de operaciones. Aquí centralizamos las herramientas que usamos día a día para mejorar nuestra experiencia de juego y desarrollo.
                     </p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Sección Proyectos -->
-        <section id="projects" class="py-24 px-6 bg-primary-dark/70">
-            <div class="container mx-auto max-w-6xl">
-                <h2 class="text-4xl md:text-5xl font-orbitron text-center text-white mb-12">
-                    Nuestros <span class="text-primary-cyan">Proyectos</span>
-                </h2>
+    <!-- Apps Grid Section -->
+    <section id="apps" class="py-24 px-6 relative">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Nuestras Herramientas</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Aplicaciones desarrolladas internamente para cubrir nuestras necesidades, desde decidir qué jugar hasta recursos para crear nuestros propios mundos.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 
-                <p class="text-center text-lg text-gray-400 mb-12">
-                    De vez en cuando, nos gusta experimentar y crear nuestras propias herramientas.
-                </p>
-
-                <!-- Grid de Proyectos -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    
-                    <!-- Tarjeta de Proyecto: Ruleta -->
-                    <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-primary-cyan/30 overflow-hidden shadow-lg transition-all duration-300 hover:shadow-neon hover:border-primary-cyan/80 transform hover:-translate-y-1">
-                        <div class="p-8">
-                            <h3 class="text-2xl md:text-3xl font-orbitron text-primary-cyan mb-4">
-                                Ruleta de Juegos
-                            </h3>
-                            <p class="text-base text-gray-300 mb-6">
-                                ¿No saben qué jugar esta noche? ¡Dejen que el destino decida! Nuestra ruleta selecciona un juego aleatorio de una lista que ustedes mismos pueden ingresar.
-                            </p>
-                            <a href="https://ruleta.erwegames.com" target="_blank" rel="noopener noreferrer" class="inline-block bg-primary-cyan text-primary-dark font-bold font-orbitron py-3 px-6 rounded-lg uppercase tracking-wider transition-all duration-300 hover:bg-white hover:text-black hover:shadow-neon-light">
-                                Ir a la Ruleta
-                            </a>
+                <!-- App 1: Generador RNG -->
+                <a href="https://numero.erwegames.com/" target="_blank" rel="noopener noreferrer" 
+                   class="group relative bg-[#131316] rounded-2xl p-6 border border-white/10 transition-all duration-300 hover:shadow-blue-500/30 hover:-translate-y-2 overflow-hidden flex flex-col">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-cyan-400"></div>
+                    <div class="mb-6 flex justify-between items-start">
+                        <div class="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 text-white shadow-lg">
+                            <i data-lucide="dices" class="w-8 h-8"></i>
                         </div>
+                        <span class="text-xs font-mono uppercase tracking-wider text-slate-500 border border-white/10 px-2 py-1 rounded bg-[#0a0a0c]">Utilidad</span>
                     </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-400 transition-colors">Generador RNG</h3>
+                    <p class="text-slate-400 text-sm mb-8 flex-grow leading-relaxed">¿Necesitas un número? Define un rango y obtén resultados instantáneos para tus sorteos o decisiones.</p>
+                    <div class="flex items-center text-sm font-medium text-slate-300 group-hover:text-white transition-colors mt-auto">
+                        Abrir App <i data-lucide="external-link" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                    <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full blur-[60px] opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"></div>
+                </a>
 
-                    <!-- Tarjeta de Proyecto: Generador de Números -->
-                    <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-primary-cyan/30 overflow-hidden shadow-lg transition-all duration-300 hover:shadow-neon hover:border-primary-cyan/80 transform hover:-translate-y-1">
-                        <div class="p-8">
-                            <h3 class="text-2xl md:text-3xl font-orbitron text-primary-cyan mb-4">
-                                Generador de Números
-                            </h3>
-                            <p class="text-base text-gray-300 mb-6">
-                                ¿Necesitas un número al azar? Define un rango (ej. 1-100) y obtén un resultado aleatorio al instante. Perfecto para sorteos o decisiones rápidas.
-                            </p>
-                            <a href="https://numero.erwegames.com" target="_blank" rel="noopener noreferrer" class="inline-block bg-primary-cyan text-primary-dark font-bold font-orbitron py-3 px-6 rounded-lg uppercase tracking-wider transition-all duration-300 hover:bg-white hover:text-black hover:shadow-neon-light">
-                                Ir al Generador
-                            </a>
+                <!-- App 2: Ruleta -->
+                <a href="https://ruleta.erwegames.com/" target="_blank" rel="noopener noreferrer" 
+                   class="group relative bg-[#131316] rounded-2xl p-6 border border-white/10 transition-all duration-300 hover:shadow-purple-500/30 hover:-translate-y-2 overflow-hidden flex flex-col">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                    <div class="mb-6 flex justify-between items-start">
+                        <div class="p-3 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 text-white shadow-lg">
+                            <i data-lucide="refresh-cw" class="w-8 h-8"></i>
                         </div>
+                        <span class="text-xs font-mono uppercase tracking-wider text-slate-500 border border-white/10 px-2 py-1 rounded bg-[#0a0a0c]">Diversión</span>
                     </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-400 transition-colors">Ruleta de Juegos</h3>
+                    <p class="text-slate-400 text-sm mb-8 flex-grow leading-relaxed">¿Indeciso? Deja que el destino elija tu próxima aventura. Gira la ruleta y empieza a jugar.</p>
+                    <div class="flex items-center text-sm font-medium text-slate-300 group-hover:text-white transition-colors mt-auto">
+                        Abrir App <i data-lucide="external-link" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                    <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full blur-[60px] opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"></div>
+                </a>
 
-                    <!-- Puedes añadir más tarjetas de proyectos aquí cuando las tengas -->
-                    <!-- 
-                    <div class="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-700/50 p-8 text-center opacity-60">
-                        <h3 class="text-2xl font-orbitron text-gray-500 mb-4">
-                            Próximo Proyecto
-                        </h3>
-                        <p class="text-gray-400">
-                            (Próximamente...)
-                        </p>
+                <!-- App 3: Warhammer -->
+                <a href="https://warhammer.erwegames.com/" target="_blank" rel="noopener noreferrer" 
+                   class="group relative bg-[#131316] rounded-2xl p-6 border border-white/10 transition-all duration-300 hover:shadow-red-500/30 hover:-translate-y-2 overflow-hidden flex flex-col">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-orange-500"></div>
+                    <div class="mb-6 flex justify-between items-start">
+                        <div class="p-3 rounded-xl bg-gradient-to-br from-red-600 to-orange-500 text-white shadow-lg">
+                            <i data-lucide="swords" class="w-8 h-8"></i>
+                        </div>
+                        <span class="text-xs font-mono uppercase tracking-wider text-slate-500 border border-white/10 px-2 py-1 rounded bg-[#0a0a0c]">Estrategia</span>
                     </div>
-                    -->
-                </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-400 transition-colors">Warhammer Randomizer</h3>
+                    <p class="text-slate-400 text-sm mb-8 flex-grow leading-relaxed">Para los estrategas. Selecciona una raza aleatoria de Total War: Warhammer y conquista el Viejo Mundo.</p>
+                    <div class="flex items-center text-sm font-medium text-slate-300 group-hover:text-white transition-colors mt-auto">
+                        Abrir App <i data-lucide="external-link" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                    <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-gradient-to-br from-red-600 to-orange-500 rounded-full blur-[60px] opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"></div>
+                </a>
+
+                <!-- App 4: Gamedev -->
+                <a href="https://gamedev.erwegames.com/" target="_blank" rel="noopener noreferrer" 
+                   class="group relative bg-[#131316] rounded-2xl p-6 border border-white/10 transition-all duration-300 hover:shadow-emerald-500/30 hover:-translate-y-2 overflow-hidden flex flex-col">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-green-400"></div>
+                    <div class="mb-6 flex justify-between items-start">
+                        <div class="p-3 rounded-xl bg-gradient-to-br from-emerald-500 to-green-400 text-white shadow-lg">
+                            <i data-lucide="scroll-text" class="w-8 h-8"></i>
+                        </div>
+                        <span class="text-xs font-mono uppercase tracking-wider text-slate-500 border border-white/10 px-2 py-1 rounded bg-[#0a0a0c]">Desarrollo</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-400 transition-colors">Recursos GameDev</h3>
+                    <p class="text-slate-400 text-sm mb-8 flex-grow leading-relaxed">Nuestra biblioteca curada de assets, software y herramientas para el diseño y desarrollo de videojuegos.</p>
+                    <div class="flex items-center text-sm font-medium text-slate-300 group-hover:text-white transition-colors mt-auto">
+                        Abrir App <i data-lucide="external-link" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                    <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-gradient-to-br from-emerald-500 to-green-400 rounded-full blur-[60px] opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"></div>
+                </a>
+
             </div>
-        </section>
-
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-primary-dark border-t border-primary-cyan/20 py-8 px-6">
-        <div class="container mx-auto max-w-6xl text-center text-gray-500">
-            <p>&copy; <span id="current-year"></span> Erwe Games. Todos los derechos reservados.</p>
-            <p class="text-sm mt-2">Creado con pasión desde Venezuela para el mundo.</p>
+    <footer class="py-12 px-6 border-t border-white/10 bg-[#050507]">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 font-bold text-xl text-white opacity-80">
+                <i data-lucide="gamepad-2" class="w-5 h-5 text-purple-500"></i>
+                <span>ERWE<span class="text-purple-500">GAMES</span></span>
+            </div>
+            
+            <div class="text-slate-500 text-sm text-center md:text-right">
+                <p>&copy; <span id="year"></span> Erwe Games. Todos los derechos reservados.</p>
+                <p class="mt-1">Hecho con <i data-lucide="heart" class="w-3 h-3 text-red-500 inline mx-1"></i> en Venezuela & el Mundo.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Scripts JS -->
+    <!-- Interactive Logic -->
     <script>
-        // Esperar a que el DOM esté completamente cargado
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // Inicializar Lucide Icons
-            // Comprobar si lucide está disponible antes de llamarlo
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                // Change icon to X via data attribute replacement for lucide to pick up? 
+                // Lucide static replace is easier handled by just toggling HTML or replacing content
+                // Simpler: Just rely on the dropdown showing
             } else {
-                console.error('Lucide icons script not loaded.');
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
             }
+        });
 
-            // --- Lógica del Menú Móvil (Restaurada) ---
-            const menuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuLinks = document.querySelectorAll('.mobile-menu-link');
+        // Close mobile menu when clicking a link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+        });
 
-            if (menuButton && mobileMenu) {
-                menuButton.addEventListener('click', () => {
-                    // Alternar la visibilidad del menú
-                    mobileMenu.classList.toggle('hidden');
-                    
-                    // Cambiar el ícono (Menu <-> X)
-                    const icon = menuButton.querySelector('i');
-                    if (mobileMenu.classList.contains('hidden')) {
-                        icon.setAttribute('data-lucide', 'menu');
-                    } else {
-                        icon.setAttribute('data-lucide', 'x');
-                    }
-                    
-                    // Volver a renderizar los íconos de Lucide
-                    if (typeof lucide !== 'undefined') {
-                        lucide.createIcons();
-                    }
-                });
-            }
-
-            // Cerrar el menú móvil al hacer clic en un enlace
-            if (menuLinks.length > 0 && mobileMenu && menuButton) {
-                menuLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
-                        
-                        // Asegurarse de que el ícono vuelva a ser 'menu'
-                        const icon = menuButton.querySelector('i');
-                        icon.setAttribute('data-lucide', 'menu');
-                        if (typeof lucide !== 'undefined') {
-                            lucide.createIcons();
-                        }
-                    });
-                });
-            }
-
-            // --- Fin de la lógica del Menú Móvil ---
-
-
-            // Año actual en el footer
-            // Asegurarse de que el span existe
-            const yearSpan = document.getElementById('current-year');
-            if (yearSpan) {
-                yearSpan.textContent = new Date().getFullYear();
+        // Scroll Logic for Navbar
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-[#0a0a0c]/90', 'backdrop-blur-md', 'border-b', 'border-white/10', 'py-4');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('bg-[#0a0a0c]/90', 'backdrop-blur-md', 'border-b', 'border-white/10', 'py-4');
+                navbar.classList.add('py-6');
             }
         });
     </script>
-
 </body>
 </html>
-
-
